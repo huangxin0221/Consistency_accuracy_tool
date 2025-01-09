@@ -42,8 +42,9 @@ mamba install pandas=1.5.3 -y
 ```r
 ## conda env2
 # hap.py (SNV benchmark)  ---- need create a new python environment
-conda create -n happy hap.py rtg-tools -y
-mamba install libgfortran==1 -y
+conda create -n happy
+conda activate happy
+mamba install  hap.py rtg-tools libgfortran==1 -y
 ```
 ### (4) some errors and its solution
 #### conda创建环境报错及其解决方法：
@@ -86,6 +87,6 @@ bash WT02_human_ecoli.sh --fastq_fn1=/path/to/HG002/FASTQ \                     
                          --snv_benchmark=/path/to/HG002/snv/benchmark \                          # HG002 SNV benchmark
                          --sv_benchmark=/path/to/HG002/sv/benchmark \                            # HG002 SV benchmark
                          --snv_high_confident_region=/path/to/HG002/snv/high_confident_region \  # HG002 SNV high confident region
-                         --sv_high_confident_region=/path/to/HG002/sv/high_confident_region \    # HG002 SV high confident region                                        
+                         --sv_high_confident_region=/path/to/HG002/sv/high_confident_region \    # HG002 SV high confident region                            
                          --tandem_repeats=/path/to/GRch37/tandem_repeat_region                   # Human-GRch37 tandem repeat region
 ```
