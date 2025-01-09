@@ -1,7 +1,7 @@
 ## 1. realted software install
 ### (1). configure the conda source (install mamba and add related channels)
 ```r
-conda install mamba -n base -c conda-forge
+conda install mamba -n base -c conda-forge -y
 conda config --add channels bioconda
 conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
 conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
@@ -43,6 +43,14 @@ mamba install pandas=1.5.3 -y
 # hap.py (SNV benchmark)  ---- need create a new python environment
 conda create -n happy hap.py rtg-tools -y
 mamba install libgfortran==1 -y
+```
+### (4) some errors and its solution
+#### conda创建环境报错及其解决方法：
+![image](https://github.com/user-attachments/assets/62fd9d8b-feb4-4df3-a8cb-7ce2f7049d00)
+```r
+conda config --set solver classic
+conda remove -n base conda-libmamba-solver
+conda install -n base conda-libmamba-solver
 ```
 ## 2. realted file description
 ```r
