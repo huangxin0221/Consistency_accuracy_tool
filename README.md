@@ -8,6 +8,7 @@ conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/fr
 conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
 conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro
 conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+conda config --set solver classic
 ```
 ### (2). install bamboo
 ```r
