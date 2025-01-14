@@ -1,23 +1,19 @@
-## 1. realted software install
-### (1). configure the conda source (install mamba and add related channels)
+## 1. software install
+### （1）add current user to docker group [need root authority]
 ```r
-conda install mamba -n base -c conda-forge -y
-conda config --add channels bioconda
-conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
-conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro
-conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda
+sudo usermod -a -G docker $(whoami)
+sudo service docker restart
+newgrp docker
 ```
-### (2). install bamboo
+### （2）software install
+
 ```r
-BAMBOO_VERSION=$(curl -s https://api.github.com/repos/CycloneSEQ-Bioinformatics/Bamboo/releases/latest | grep "tag_name" | awk -F'"' '{print $4}' | sed 's/^v//')
-wget https://github.com/CycloneSEQ-Bioinformatics/Bamboo/releases/download/v$BAMBOO_VERSION/bamboo-$BAMBOO_VERSION.tar.gz
-tar xvzf bamboo-$BAMBOO_VERSION.tar.gz
-cd bamboo-$BAMBOO_VERSION
-chmod +x bamboo
+# method 1: docker pull (online installation requires network connection) slow
+docker pull crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0
+docker tag crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0 wt02_human_ecoli:v1.0.1.0
+docker rmi crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0
+# method 2： docker load (local installation network is not needed, but you should provide wt02_human_ecoli_v1.0.1.0.tar files)
+docker load -i wt02_human_ecoli_v1.0.1.0.tar
 ```
 ### (3). create conda env1 and env2, and install related software 
 ```r
