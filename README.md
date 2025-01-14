@@ -12,7 +12,7 @@ newgrp docker
 docker pull crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0
 docker tag crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0 wt02_human_ecoli:v1.0.1.0
 docker rmi crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0
-# method 2： docker load (local installation network is not needed, but you should provide wt02_human_ecoli_v1.0.1.0.tar files)
+# method 2: docker load (local installation network is not needed, but you should provide wt02_human_ecoli_v1.0.1.0.tar files)
 docker load -i wt02_human_ecoli_v1.0.1.0.tar
 ```
 ## 2. usage
