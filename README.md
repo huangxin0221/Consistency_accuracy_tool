@@ -23,6 +23,7 @@ docker run wt02_human_ecoli:v1.0.1.0 --help
 ## 3. demo
 ```r
 # run HG002, UHRR, and ecoli
+newgrp docker
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /path/to/hg002/fastq or fastq directory:/app/input/fastq filename or RUN ID  \  # HG002 fastq file or directory [if provide fastq file, make sure fastq filename is the same as raw fastq filename. If provide fastq directory, please provide RUN ID]
@@ -41,6 +42,7 @@ docker run --rm \
   --output_fn="WT02.txt" \                                                           # output filename (default: WT02.txt)
   --threads=20                                                                       # number of threads (default: 20) 
 # run ecoli
+newgrp docker
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /path/to/ecoli/fastq or fastq directory:/app/input/fastq filename or RUN ID \   # Ecoli fastq file or directory  
