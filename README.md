@@ -9,16 +9,16 @@ newgrp docker
 
 ```r
 # method 1: docker pull (online installation requires network connection) slow
-docker pull crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0
-docker tag crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0 wt02_human_ecoli:v1.0.1.0
-docker rmi crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.1.0
-# method 2: docker load (local installation network is not needed, but you should provide wt02_human_ecoli_v1.0.1.0.tar files)
-docker load -i wt02_human_ecoli_v1.0.1.0.tar
+docker pull crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.2.0
+docker tag crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.2.0 wt02_human_ecoli:v1.0.2.0
+docker rmi crpi-7a9vueif1b7jprb7.cn-hangzhou.personal.cr.aliyuncs.com/huangxin970221/wt02_human_ecoli:v1.0.2.0
+# method 2: docker load (local installation network is not needed, but you should provide wt02_human_ecoli_v1.0.2.0.tar files)
+docker load -i wt02_human_ecoli_v1.0.2.0.tar
 ```
 ## 2. usage
 ```r
 ### Usage 
-docker run wt02_human_ecoli:v1.0.1.0 --help
+docker run wt02_human_ecoli:v1.0.2.0 --help
 ```
 ## 3. demo
 ```r
@@ -31,7 +31,7 @@ docker run --rm \
   -v /path/to/uhrr/fastq or fastq directory:/app/input/fastq filename or RUN ID \    # UHRR fastq file or directory [same as HG002]
   -v /path/to/ecoli/fastq or fastq directory:/app/input/fastq filename or RUN ID \   # Ecoli fastq file or directory [same as HG002]    
   -v /path/to/output/directory:/app/output \                                         # You need create output directory by yourself, and ensure output directory is empty
-  wt02_human_ecoli:v1.0.1.0 \
+  wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn1=/app/input/fastq filename or RUN ID \                                  # HG002 fastq file or directory (consistent with the previous fastq or folder)
   --fastq_fn2=/app/input/fastq filename or RUN ID \                                  # UHRR fastq file or directory (consistent with the previous fastq or folder)
   --fastq_fn3=/app/input/fastq filename or RUN ID \                                  # Ecoli fastq file or directory (consistent with the previous fastq or folder)
@@ -47,7 +47,7 @@ docker run --rm \
   --user $(id -u):$(id -g) \
   -v /path/to/ecoli/fastq or fastq directory:/app/input/fastq filename or RUN ID \   # Ecoli fastq file or directory  
   -v /path/to/output/directory:/app/output \                                         # You need create output directory by yourself, and ensure output directory is empty
-  wt02_human_ecoli:v1.0.1.0 \
+  wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn3=/app/input/fastq filename or RUN ID \                                  # Ecoli fastq file or directory (consistent with the previous fastq or folder)
   --sample_ID3="Ecoli" \                                                             # Ecoli sample id (default: Ecoli)
   --output_dir=/app/output/ \                                                        # output directory (no need to change it) 
