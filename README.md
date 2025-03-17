@@ -22,6 +22,7 @@ docker run wt02_human_ecoli:v1.0.2.0 --help
 ```
 ## 3. demo
 ```r
+newgrp docker
 ## HG002
 # only for HG002 (input directory)
 docker run --rm \
