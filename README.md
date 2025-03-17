@@ -28,7 +28,7 @@ newgrp docker
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /data/2407B03221011:/app/input/2407B03221011 \
-  -v /data/output/2407B03221011:/app/output \
+  -v /data/QC/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn1=/app/input/2407B03221011 \
   --sample_ID1="HG002" \
@@ -39,7 +39,7 @@ docker run --rm \
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
-  -v /data/output/2407B03221011:/app/output \
+  -v /data/QC/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn1=/app/input/2407B03221011/2407B03221011.fastq.gz \
   --sample_ID1="HG002" \
@@ -52,7 +52,7 @@ docker run --rm \
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /data/2407B03221011:/app/input/2407B03221011 \
-  -v /data/output/2407B03221011:/app/output \
+  -v /data/QC/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn2=/app/input/2407B03221011 \
   --sample_ID2="UHRR" \
@@ -63,7 +63,7 @@ docker run --rm \
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
-  -v /data/output/2407B03221011:/app/output \
+  -v /data/QC/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn2=/app/input/2407B03221011/2407B03221011.fastq.gz \
   --sample_ID2="UHRR" \
@@ -76,7 +76,7 @@ docker run --rm \
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /data/2407B03221011:/app/input/2407B03221011 \
-  -v /data/output/2407B03221011:/app/output \
+  -v /data/QC/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn3=/app/input/2407B03221011 \
   --sample_ID3="Ecoli" \
@@ -87,7 +87,7 @@ docker run --rm \
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
-  -v /data/output/2407B03221011:/app/output \
+  -v /data/QC/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn3=/app/input/2407B03221011/2407B03221011.fastq.gz \
   --sample_ID3="Ecoli" \
@@ -100,7 +100,7 @@ docker run --rm \
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /data/2407B03221011:/app/input/2407B03221011 \
-  -v /data/output/2407B03221011:/app/output \
+  -v /data/QC/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn4=/app/input/2407B03221011 \
   --sample_ID4="HPV11" \
@@ -111,7 +111,7 @@ docker run --rm \
 docker run --rm \
   --user $(id -u):$(id -g) \
   -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
-  -v /data/output/2407B03221011:/app/output \
+  -v /data/QC/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn4=/app/input/2407B03221011/2407B03221011.fastq.gz \
   --sample_ID4="HPV11" \
@@ -127,7 +127,7 @@ docker run --rm \
   -v /data/2407B03221012:/app/input/2407B03221012 \
   -v /data/2407B03221013:/app/input/2407B03221013 \
   -v /data/2407B03221014:/app/input/2407B03221014 \
-  -v /data/output/2407B032210:/app/output \
+  -v /data/QC/2407B032210:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn1=/app/input/2407B03221011 \
   --fastq_fn2=/app/input/2407B03221012 \
@@ -148,7 +148,7 @@ docker run --rm \
   -v /data/2407B03221012/2407B03221012.fastq.gz:/app/input/2407B03221012/2407B03221012.fastq.gz \
   -v /data/2407B03221013/2407B03221013.fastq.gz:/app/input/2407B03221013/2407B03221013.fastq.gz \
   -v /data/2407B03221013/2407B03221014.fastq.gz:/app/input/2407B03221013/2407B03221014.fastq.gz \
-  -v /data/output/2407B032210:/app/output \
+  -v /data/QC/2407B032210:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
   --fastq_fn1=/app/input/2407B03221011/2407B03221011.fastq.gz \
   --fastq_fn2=/app/input/2407B03221012/2407B03221012.fastq.gz \
