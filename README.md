@@ -22,37 +22,144 @@ docker run wt02_human_ecoli:v1.0.2.0 --help
 ```
 ## 3. demo
 ```r
-# run HG002, UHRR, and ecoli
-newgrp docker
+## HG002
+# only for HG002 (input directory)
 docker run --rm \
   --user $(id -u):$(id -g) \
-  -v /path/to/hg002/fastq or fastq directory:/app/input/fastq filename or RUN ID  \  # HG002 fastq file or directory [if provide fastq file, make sure fastq filename is the same as raw fastq filename. If provide fastq directory, please provide RUN ID]
-                                                                                     # no need to change /app/input/, but you should provide fastq filename or RUN ID
-  -v /path/to/uhrr/fastq or fastq directory:/app/input/fastq filename or RUN ID \    # UHRR fastq file or directory [same as HG002]
-  -v /path/to/ecoli/fastq or fastq directory:/app/input/fastq filename or RUN ID \   # Ecoli fastq file or directory [same as HG002]    
-  -v /path/to/output/directory:/app/output \                                         # You need create output directory by yourself, and ensure output directory is empty
+  -v /data/2407B03221011:/app/input/2407B03221011 \
+  -v /data/output/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
-  --fastq_fn1=/app/input/fastq filename or RUN ID \                                  # HG002 fastq file or directory (consistent with the previous fastq or folder)
-  --fastq_fn2=/app/input/fastq filename or RUN ID \                                  # UHRR fastq file or directory (consistent with the previous fastq or folder)
-  --fastq_fn3=/app/input/fastq filename or RUN ID \                                  # Ecoli fastq file or directory (consistent with the previous fastq or folder)
-  --sample_ID1="HG002" \                                                             # HG002 sample id (default: HG002)      
-  --sample_ID2="UHRR" \                                                              # UHRR sample id (default: UHRR)
-  --sample_ID3="Ecoli" \                                                             # Ecoli sample id (default: Ecoli)
-  --output_dir=/app/output/ \                                                        # output directory (no need to change it) 
-  --output_fn="WT02.txt" \                                                           # output filename (default: WT02.txt)
-  --threads=20                                                                       # number of threads (default: 20) 
-# run ecoli
-newgrp docker
+  --fastq_fn1=/app/input/2407B03221011 \
+  --sample_ID1="HG002" \
+  --output_dir=/app/output \
+  --output_fn="2407B03221011.txt" \
+  --threads=20
+# only for HG002 (input fastq file)
 docker run --rm \
   --user $(id -u):$(id -g) \
-  -v /path/to/ecoli/fastq or fastq directory:/app/input/fastq filename or RUN ID \   # Ecoli fastq file or directory  
-  -v /path/to/output/directory:/app/output \                                         # You need create output directory by yourself, and ensure output directory is empty
+  -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
+  -v /data/output/2407B03221011:/app/output \
   wt02_human_ecoli:v1.0.2.0 \
-  --fastq_fn3=/app/input/fastq filename or RUN ID \                                  # Ecoli fastq file or directory (consistent with the previous fastq or folder)
-  --sample_ID3="Ecoli" \                                                             # Ecoli sample id (default: Ecoli)
-  --output_dir=/app/output/ \                                                        # output directory (no need to change it) 
-  --output_fn="WT02.txt" \                                                           # output filename (default: WT02.txt)
-  --threads=20                                                                       # number of threads (default: 20) 
+  --fastq_fn1=/app/input/2407B03221011/2407B03221011.fastq.gz \
+  --sample_ID1="HG002" \
+  --output_dir=/app/output \
+  --output_fn="2407B03221011.txt" \
+  --threads=20
+
+## UHRR
+# only for UHRR (input directory)
+docker run --rm \
+  --user $(id -u):$(id -g) \
+  -v /data/2407B03221011:/app/input/2407B03221011 \
+  -v /data/output/2407B03221011:/app/output \
+  wt02_human_ecoli:v1.0.2.0 \
+  --fastq_fn2=/app/input/2407B03221011 \
+  --sample_ID2="UHRR" \
+  --output_dir=/app/output \
+  --output_fn="2407B03221011.txt" \
+  --threads=20
+# only for UHRR (input fastq file)
+docker run --rm \
+  --user $(id -u):$(id -g) \
+  -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
+  -v /data/output/2407B03221011:/app/output \
+  wt02_human_ecoli:v1.0.2.0 \
+  --fastq_fn2=/app/input/2407B03221011/2407B03221011.fastq.gz \
+  --sample_ID2="UHRR" \
+  --output_dir=/app/output \
+  --output_fn="2407B03221011.txt" \
+  --threads=20 
+
+## Ecoli
+# only for ecoli (input directory)
+docker run --rm \
+  --user $(id -u):$(id -g) \
+  -v /data/2407B03221011:/app/input/2407B03221011 \
+  -v /data/output/2407B03221011:/app/output \
+  wt02_human_ecoli:v1.0.2.0 \
+  --fastq_fn3=/app/input/2407B03221011 \
+  --sample_ID3="Ecoli" \
+  --output_dir=/app/output \
+  --output_fn="2407B03221011.txt" \
+  --threads=20
+# only for ecoli (input fastq file)
+docker run --rm \
+  --user $(id -u):$(id -g) \
+  -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
+  -v /data/output/2407B03221011:/app/output \
+  wt02_human_ecoli:v1.0.2.0 \
+  --fastq_fn3=/app/input/2407B03221011/2407B03221011.fastq.gz \
+  --sample_ID3="Ecoli" \
+  --output_dir=/app/output \
+  --output_fn="2407B03221011.txt" \
+  --threads=20  
+
+## HPV11
+# only for HPV11 (input directory)
+docker run --rm \
+  --user $(id -u):$(id -g) \
+  -v /data/2407B03221011:/app/input/2407B03221011 \
+  -v /data/output/2407B03221011:/app/output \
+  wt02_human_ecoli:v1.0.2.0 \
+  --fastq_fn4=/app/input/2407B03221011 \
+  --sample_ID4="HPV11" \
+  --output_dir=/app/output \
+  --output_fn="2407B03221011.txt" \
+  --threads=20
+# only for HPV11 (input fastq file)
+docker run --rm \
+  --user $(id -u):$(id -g) \
+  -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
+  -v /data/output/2407B03221011:/app/output \
+  wt02_human_ecoli:v1.0.2.0 \
+  --fastq_fn4=/app/input/2407B03221011/2407B03221011.fastq.gz \
+  --sample_ID4="HPV11" \
+  --output_dir=/app/output \
+  --output_fn="2407B03221011.txt" \
+  --threads=20  
+
+## HG002, UHRR, Ecoli, and HPV11
+# HG002, UHRR and Ecoli (input directory)
+docker run --rm \
+  --user $(id -u):$(id -g) \
+  -v /data/2407B03221011:/app/input/2407B03221011 \
+  -v /data/2407B03221012:/app/input/2407B03221012 \
+  -v /data/2407B03221013:/app/input/2407B03221013 \
+  -v /data/2407B03221014:/app/input/2407B03221014 \
+  -v /data/output/2407B032210:/app/output \
+  wt02_human_ecoli:v1.0.2.0 \
+  --fastq_fn1=/app/input/2407B03221011 \
+  --fastq_fn2=/app/input/2407B03221012 \
+  --fastq_fn3=/app/input/2407B03221013 \
+  --fastq_fn4=/app/input/2407B03221014 \
+  --sample_ID1="HG002" \
+  --sample_ID2="UHRR" \
+  --sample_ID3="Ecoli" \
+  --sample_ID4="HPV11" \
+  --output_dir=/app/output \
+  --output_fn="2407B032210.txt" \
+  --threads=20 
+
+# HG002, UHRR and Ecoli (input fastq files)
+docker run --rm \
+  --user $(id -u):$(id -g) \
+  -v /data/2407B03221011/2407B03221011.fastq.gz:/app/input/2407B03221011/2407B03221011.fastq.gz \
+  -v /data/2407B03221012/2407B03221012.fastq.gz:/app/input/2407B03221012/2407B03221012.fastq.gz \
+  -v /data/2407B03221013/2407B03221013.fastq.gz:/app/input/2407B03221013/2407B03221013.fastq.gz \
+  -v /data/2407B03221013/2407B03221014.fastq.gz:/app/input/2407B03221013/2407B03221014.fastq.gz \
+  -v /data/output/2407B032210:/app/output \
+  wt02_human_ecoli:v1.0.2.0 \
+  --fastq_fn1=/app/input/2407B03221011/2407B03221011.fastq.gz \
+  --fastq_fn2=/app/input/2407B03221012/2407B03221012.fastq.gz \
+  --fastq_fn3=/app/input/2407B03221013/2407B03221013.fastq.gz \
+  --fastq_fn4=/app/input/2407B03221013/2407B03221014.fastq.gz \
+  --sample_ID1="HG002" \
+  --sample_ID2="UHRR" \
+  --sample_ID3="Ecoli" \
+  --sample_ID4="HPV11" \
+  --output_dir=/app/output \
+  --output_fn="2407B032210.txt" \
+  --threads=20 
 ```
 
 
